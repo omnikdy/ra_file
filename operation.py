@@ -99,10 +99,16 @@ class ra_project:
                 time.sleep(1)
                 # answer box
                 def extract_info():
-                    answer[new_code]=txtfld.get()
+                    tem = []
+                    tem.append(txtfld1.get())
+                    tem.append(txtfld2.get())
+                    answer[new_code]=tem
                     window.destroy()
                 def break_down():
-                    answer[new_code]=txtfld.get()
+                    tem = []
+                    tem.append(txtfld1.get())
+                    tem.append(txtfld2.get())
+                    answer[new_code]=tem
                     window.destroy()
                     self.driver.quit()
                     self.judge = 1
@@ -110,17 +116,21 @@ class ra_project:
                 window.title('Peace & Love')
                 window.geometry("500x300+10+10")
                 lbl=Label(window, text=f"Current code : {new_code}", fg='black', font=("Helvetica", 12))
-                lbl.place(x=150, y=50)
+                lbl.place(x=150, y=20)
                 lbl=Label(window, text=f"You have finished : {num}", fg='black', font=("Helvetica", 12))
-                lbl.place(x=150, y=70)
+                lbl.place(x=150, y=40)
                 lbl=Label(window, text=f"The answer is :", fg='black', font=("Helvetica", 12))
                 lbl.place(x=105, y=100)
-                txtfld=Entry(window, text="This is Entry Widget", bd=5)
-                txtfld.place(x=230, y=100)
+                txtfld1=Entry(window, text="num1", bd=5)
+                txtfld1.place(x=230, y=100)
+                lbl=Label(window, text=f"Multiple time :", fg='black', font=("Helvetica", 12))
+                lbl.place(x=105, y=150)
+                txtfld2=Entry(window, text="num2", bd=5)
+                txtfld2.place(x=230, y=150)
                 btn=Button(window, text="Next", fg='black',default='active',justify='center',width=10,command=extract_info)
-                btn.place(x=200, y=150)
-                btn=Button(window, text="Quit", fg='black',default='active',justify='center',width=10,command=break_down)
                 btn.place(x=200, y=200)
+                btn=Button(window, text="Quit", fg='black',default='active',justify='center',width=10,command=break_down)
+                btn.place(x=200, y=250)
                 window.mainloop()
                 if self.judge==1:
                     break
